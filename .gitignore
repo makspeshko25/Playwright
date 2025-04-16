@@ -1,6 +1,22 @@
-# Playwright
+
+# Node modules
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+
+# Environment config (don't push secrets!)
+.env*
+!.env.example
+
+# Playwright artifacts
+test-results/
+playwright-report/
+*.log
+*.trace
+*.zip
+
+# OS and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Prettier cache (optional)
+.prettiercache

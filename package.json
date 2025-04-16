@@ -2,7 +2,23 @@
   "name": "playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:trace": "playwright test --trace on",
+    "test:update-snapshots": "playwright test --update-snapshots",
+    "test:dev": "dotenv -e .env.dev -- playwright test",
+    "test:prod": "dotenv -e .env.prod -- playwright test",
+    "test:grep:login": "playwright test --grep @login",
+    "test:grep:smoke": "playwright test --grep @smoke"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/makspeshko25/Playwright.git"
@@ -17,6 +33,14 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.0"
+    "@types/node": "^22.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "eslint": "^9.24.0",
+    "eslint-plugin-playwright": "^2.2.0",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
   }
 }
