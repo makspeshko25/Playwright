@@ -1,9 +1,10 @@
-/**
- * @param {import('@playwright/test').Page} page
- */
-class mainPage{
+import * as Modules from '../index.js';
+
+export default class MainPage extends Modules.BasePage{
     constructor(page){
-        this.page=page;
+        super(page);
+        this.selectors = {
+            signUpButton: this.page.locator('button.hero-descriptor_btn:has-text("Sign up")')
+        }
     }
-    
 }
