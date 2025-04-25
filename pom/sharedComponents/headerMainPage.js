@@ -1,25 +1,24 @@
-import * as Modules from '../index.js';
-
-export default class MainPageHeader {
-    constructor(page){
-        super(page);
-        this.selectors = {
-            homeButton: this.page.locator('button.btn.header-link-active',{hasText:'Home'}),
-            aboutButton: this.page.locator('button.btn.header-link',{hasText:'About'}),
-            contactsButton: this.page.locator('button.btn.header-link',{hasText:'Contacts'}),
-            guestLogInButton: this.page.locator('button.header-link-guest', {hasText:'Guest log in'}),
-            signInButton: this.page.locator('button.btn.btn-outline-white header_signin', {hasText:'Sign In'})
-        }
+import BasePage from '../basePage.js';
+export default class MainPageHeader extends BasePage {
+    constructor(page) {
+      super(page); 
+      this.selectors = {
+        homeButton: page.locator('a.btn.header-link.-active', { hasText: 'Home' }),
+        aboutButton: page.locator('button.btn.header-link', { hasText: 'About' }),
+        contactsButton: page.locator('button.btn.header-link', { hasText: 'Contacts' }),
+        guestLogInButton: page.locator('button', { hasText: 'Guest log in' }),
+        signInButton: page.locator('button.btn.btn-outline-white.header_signin', { hasText: 'Sign In' })
+      };
     }
     async isVisibleHeaderButton(buttonName){
-        const selector = this.selectors[buttonName];
-        if (!selector) throw new Error(`No such button: ${buttonName}`);
-        await this.isVisible(selector);
+      const locator = this.selectors[buttonName];
+      if (!locator) throw new Error(`No such button: ${buttonName}`);
+      await this.isVisible(locator); // Pass the locator object directly
     }
+  
     async clickHeaderButton(buttonName){
-        const selector = this.selectors[buttonName];
-        if (!selector) throw new Error(`No such button: ${buttonName}`);
-        await this.click(selector); 
+      const locator = this.selectors[buttonName];
+      if (!locator) throw new Error(`No such button: ${buttonName}`);
+      await this.click(locator);
     }
-
-}
+  }

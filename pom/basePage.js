@@ -11,8 +11,8 @@ export default class BasePage {
     async openPage(){
         await this.page.goto(this.url)
     }
-    async isVisible(selector) {
-        return await this.page.isVisible(selector);
+    async isVisible(locator) {
+      return await locator.isVisible();
       }
     async goBack(){
         await this.page.goBack();
@@ -21,8 +21,8 @@ export default class BasePage {
         await this.page.reload();
       }
     //Element Interaction
-    async click(selector) {
-        await this.page.click(selector);
+    async click(locator) {
+        return await locator.click();
       }
       
     async type(selector, text) {
@@ -33,9 +33,6 @@ export default class BasePage {
         await this.page.press(selector, key);
       }
     //Element Checks
-    async isVisible(selector) {
-        return await this.page.isVisible(selector);
-      }
       
     async isHidden(selector) {
         return !(await this.page.isVisible(selector));

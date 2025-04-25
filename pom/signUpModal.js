@@ -1,6 +1,6 @@
-import * as Modules from '../index.js';
+import BasePage from "./basePage";
 
-export default class SignUpModal extends Modules.BasePage{
+export default class SignUpModal extends BasePage{
     constructor(page){
         super(page);
         this.selectors = {

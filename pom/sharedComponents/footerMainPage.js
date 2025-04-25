@@ -1,6 +1,6 @@
-import * as Modules from '../index.js';
+import BasePage from '../basePage.js';
 
-export default class MainPageFooter extends Modules.BasePage{
+export default class MainPageFooter extends BasePage{
     constructor(page) {   
         super(page);  
         this.selectors={
