@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import BasePage from '../basePage.js';
 export default class MainPageHeader extends BasePage {
     constructor(page) {
@@ -13,12 +14,12 @@ export default class MainPageHeader extends BasePage {
     async isVisibleHeaderButton(buttonName){
       const locator = this.selectors[buttonName];
       if (!locator) throw new Error(`No such button: ${buttonName}`);
-      await this.isVisible(locator); // Pass the locator object directly
+      await expect(locator).toBeVisible();
     }
   
     async clickHeaderButton(buttonName){
       const locator = this.selectors[buttonName];
       if (!locator) throw new Error(`No such button: ${buttonName}`);
-      await this.click(locator);
+      await locator.click();
     }
   }

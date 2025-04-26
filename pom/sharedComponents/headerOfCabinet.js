@@ -10,14 +10,14 @@ export default class CabinetHeader extends Modules.BasePage{
             myProfileButton: this.page.locator('button#userNavDropdown.dropdown-toggle.user-nav_toggle', { hasText: 'My profile' })
     }}
     async isVisibleFooterButton(buttonName){
-        const selector = this.selectors[buttonName];
-        if (!selector) throw new Error(`No such button: ${buttonName}`);
-        await this.isVisible(selector);
+      const locator = this.selectors[buttonName];
+      if (!locator) throw new Error(`No such button: ${buttonName}`);
+      await expect(locator).toBeVisible();
     }
     
     async clickFooterButton(buttonName){
-        const selector = this.selectors[buttonName];
-        if (!selector) throw new Error(`No such button: ${buttonName}`);
-        await this.click(selector);
+        const locator = this.selectors[buttonName];
+        if (!locator) throw new Error(`No such button: ${buttonName}`);
+        await locator.click();
     }
 }

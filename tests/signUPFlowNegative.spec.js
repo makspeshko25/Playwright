@@ -8,9 +8,7 @@ test.describe('Main Page functionality check', () => {
           password: 'welcome2qauto',
         }
     }); 
-    let pageInstance;
     test.beforeEach(async ({ page }) => {
-        pageInstance=page;
         await page.goto('https://qauto.forstudy.space/');
     });
     test('Validation text check for password reenter',async({page})=>{

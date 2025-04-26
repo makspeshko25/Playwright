@@ -7,4 +7,7 @@ export default class MainPage extends BasePage{
             signUpButton: this.page.locator('button.hero-descriptor_btn:has-text("Sign up")')
         }
     }
+    async clickSignUpButton() {
+        await this.selectors.signUpButton.click();
+      }
 }
