@@ -1,6 +1,7 @@
+import BasePage from '../basePage.js';
 import * as Modules from '../index.js';
 
-export default class LeftNavPanel {
+export default class LeftNavPanel extends BasePage{
     constructor(page){
         super(page);
         this.selectors = {
