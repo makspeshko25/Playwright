@@ -34,13 +34,13 @@ export default class ExpensesPage extends Modules.BasePage{
         return this.isVisible(this.Modules.LeftNavPanel.fuelExpensesActiveTab)
     }
     async clickAddExpenseButton(){
-        return this.click(this.selectors.addExpenseButtonActive)
+        await this.click(this.selectors.addExpenseButtonActive)
     }
     async isDropDownVisible(){
         return this.isVisible(this.selectors.dropDownButton)
     }
     async clickOnDropDownButton(){
-        return this.click(this.selectors.dropDownButton)
+        await this.click(this.selectors.dropDownButton)
     }
     async clickOnFirstOption(){
         return this.click(this.selectors.firstOption)

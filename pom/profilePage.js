@@ -1,1 +1,30 @@
-import * as Modules from '../index.js';
+import BasePage from "./basePage";
+import LeftNavPanel from "./sharedComponents/leftNavPanel";
+
+export default class ProfilePage extends BasePage{
+    constructor(page){
+        super(page);
+        this.selectors={
+            userNaming: this.page.locator('p.profile_name.display-4', {hasText:`${userInitials}`}),
+            avatar: this.page.locator('img.profile_photo[alt="User photo"]'),
+            editProfileButton: this.page.locator('b.btn.btn-primary', {hasText:"Edit profile"}),
+            pageTitle: this.page.locator('h1', { hasText: 'Profile' })
+        }
+    }
+    async isUserNameVisible(userInitials){
+        return this.isVisible(this.selectors.usernNameTitle(userInitials))
+    }
+    async isProfileTitleVisisble(){
+        return this.isVisible(this.selectors.pageTitle)
+    }
+    async isAvatarVisisble(){
+        return this.isVisible(this.selectors.avatar)
+    }
+    async clickEditProfileButton(){
+        await this.click(this.selectors.editProfileButton)
+    }
+    async isProfileTabHighlighted(){
+        const leftNav = new LeftNavPanel(this.page)
+        return this.isVisible(leftNav.selectors.profileTab)
+    }
+}

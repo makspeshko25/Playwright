@@ -48,7 +48,7 @@ export default class ExpenseModal extends Modules.BasePage{
     }
 
     async checkAddbuttonDisabled() {
-        return await this.selectors.disabledAddbutton.isVisible();
+        return this.selectors.disabledAddbutton.isVisible();
     }
 
     async clickAddButton() {
