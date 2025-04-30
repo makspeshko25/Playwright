@@ -14,8 +14,8 @@
     "test:report": "playwright show-report",
     "test:trace": "playwright test --trace on",
     "test:update-snapshots": "playwright test --update-snapshots",
-    "test:dev": "dotenv -e .env.dev -- playwright test",
-    "test:prod": "dotenv -e .env.prod -- playwright test",
+    "test:dev": "ENV=dev npx playwright test",
+    "test:prod": "ENV=prod npx playwright test",
     "test:grep:login": "playwright test --grep @login",
     "test:grep:smoke": "playwright test --grep @smoke"
   },

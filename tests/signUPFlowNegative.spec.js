@@ -1,4 +1,4 @@
-import { SignUpModal, MainPage, SettingsPage } from '../index.js';
+import { SignUpModal, MainPage } from '../index.js';
 import { test, expect } from '@playwright/test';
 
 test.describe('Main Page functionality check', () => {

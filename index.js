@@ -18,8 +18,8 @@ import BasePage from './pom/basePage.js';
 // import ExpensesPage from './fuelExpensesPage.js';
 // import GaragePage from './garagePage.js';
 import MainPage from './pom/mainPage.js';
-// import ProfileModal from './profileEditModal.js';
-// import ProfilePage from './profilePage.js';
+import ProfileEditModal from './pom/profileEditModal.js';
+import ProfilePage from './pom/profilePage.js';
 import SettingsPage from './pom/settingsPage.js';
 import SignUpModal from './pom/signUpModal.js';
 
@@ -27,7 +27,7 @@ import SignUpModal from './pom/signUpModal.js';
 import MainPageFooter from './pom/sharedComponents/footerMainPage.js';
 import MainPageHeader from './pom/sharedComponents/headerMainPage.js';
 // import CabinetHeader from './sharedComponents/headerOfCabinet.js';
-// import LeftNavPanel from './sharedComponents/leftNavPanel.js';
+import LeftNavPanel from './pom/sharedComponents/leftNavPanel.js';
 
 // // Environment
 // import dotenv from 'dotenv';
@@ -55,8 +55,8 @@ export {
 //   ExpensesPage,
 //   GaragePage,
   MainPage,
-//   ProfileModal,
-//   ProfilePage,
+  ProfileEditModal,
+  ProfilePage,
   SettingsPage,
   SignUpModal
 };
@@ -66,7 +66,7 @@ export {
   MainPageFooter,
   MainPageHeader,
 //   CabinetHeader,
-//   LeftNavPanel
+  LeftNavPanel
 };
 
 // // Export Environment variables
