@@ -1,6 +1,7 @@
-import * as Modules from '../index.js';
+import BasePage from "./basePage";
+import LeftNavPanel from "./sharedComponents/leftNavPanel";
 
-export default class GaragePage extends Modules.BasePage{
+export default class GaragePage extends BasePage{
     constructor(page){
         super(page);
         this.selectors = {
@@ -22,6 +23,6 @@ export default class GaragePage extends Modules.BasePage{
         return this.click(this.selectors.addCarButton)
     }
     async isGarageTabHighlighted(){
-        return this.isVisible(this.Modules.LeftNavPanel.activeGarageTab)
+        return this.isVisible(this.LeftNavPanel.activeGarageTab)
     }
 }
