@@ -5,9 +5,8 @@ export default class ProfilePage extends BasePage{
     constructor(page){
         super(page);
         this.selectors={
-            userNaming: this.page.locator('p.profile_name.display-4', {hasText:`${userInitials}`}),
             avatar: this.page.locator('img.profile_photo[alt="User photo"]'),
-            editProfileButton: this.page.locator('b.btn.btn-primary', {hasText:"Edit profile"}),
+            editProfileButton: this.page.locator('button.btn.btn-primary', {hasText:'Edit profile'}),
             pageTitle: this.page.locator('h1', { hasText: 'Profile' })
         }
     }

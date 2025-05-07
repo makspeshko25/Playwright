@@ -1,5 +1,5 @@
 import BasePage from "./basePage";
-
+import path from 'path';
 export default class ProfileEditModal extends BasePage{
     constructor(page){
         super(page);
@@ -12,8 +12,8 @@ export default class ProfileEditModal extends BasePage{
             birthdaySelectorButton: this.page.locator('button.btn.date-picker-toggle'),
             yearDropdown: this.page.locator('select.custom-select[title="Select year"]'),
             monthSelector: this.page.locator('select.custom-select[title="Select month"]'),
-            specificDay: this.page.locator('div.ngb-dp-day[aria-label="Monday, April 14, 2025"] > div'),
-            uploadProfilePhoto: this.page.locator('#editProfilePhoto'),
+            specificDay: this.page.locator('div.ngb-dp-day[aria-label="Thursday, January 14, 1999"] > div'),
+            uploadProfilePhoto: this.page.locator('input[type="file"]#editProfilePhoto'),
             saveButton: this.page.locator('button.btn.btn-primary', {hasText:'Save'})
         }
     }
@@ -35,17 +35,19 @@ export default class ProfileEditModal extends BasePage{
     async clickBirthdaySelectButton(){
         await this.selectors.birthdaySelectorButton.click()
     }
-    async selectYear(){
-        await this.selectors.yearDropdown.select(year)
+    async selectYear(year){
+        await this.selectors.yearDropdown.selectOption(year)
     }
-    async clickMonthDropdown(){
-        await this.selectors.monthSelector.select(month)
+    async selectMonth(month){
+        await this.selectors.monthSelector.selectOption(month)
     }
     async clickSpecificDay(){
         await this.selectors.specificDay.click()
     }
-    async uploadFile(){
-        await this.selectors.uploadProfilePhoto.setInputFiles('Users/maksympeshko/Downloads/pexels-infected-store-1913417375-29276076.jpg')
+    async uploadFile() {
+            const filePath = path.resolve('pexels-infected-store-1913417375-29276076.jpg');
+            await this.selectors.uploadProfilePhoto.waitFor({ state: 'visible', timeout: 5000 });
+            await this.selectors.uploadProfilePhoto.setInputFiles(filePath);
     }
     async clickSaveButton(){
         await this.selectors.saveButton.click()
